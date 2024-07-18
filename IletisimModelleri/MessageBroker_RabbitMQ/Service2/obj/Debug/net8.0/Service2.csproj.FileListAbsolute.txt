@@ -1,0 +1,17 @@
+C:\Users\mav228\Desktop\MicroservicesExample\IletisimModelleri\MessageBroker_RabbitMQ\Service2\bin\Debug\net8.0\Service2.exe
+C:\Users\mav228\Desktop\MicroservicesExample\IletisimModelleri\MessageBroker_RabbitMQ\Service2\bin\Debug\net8.0\Service2.deps.json
+C:\Users\mav228\Desktop\MicroservicesExample\IletisimModelleri\MessageBroker_RabbitMQ\Service2\bin\Debug\net8.0\Service2.runtimeconfig.json
+C:\Users\mav228\Desktop\MicroservicesExample\IletisimModelleri\MessageBroker_RabbitMQ\Service2\bin\Debug\net8.0\Service2.dll
+C:\Users\mav228\Desktop\MicroservicesExample\IletisimModelleri\MessageBroker_RabbitMQ\Service2\bin\Debug\net8.0\Service2.pdb
+C:\Users\mav228\Desktop\MicroservicesExample\IletisimModelleri\MessageBroker_RabbitMQ\Service2\bin\Debug\net8.0\RabbitMQ.Client.dll
+C:\Users\mav228\Desktop\MicroservicesExample\IletisimModelleri\MessageBroker_RabbitMQ\Service2\obj\Debug\net8.0\Service2.csproj.AssemblyReference.cache
+C:\Users\mav228\Desktop\MicroservicesExample\IletisimModelleri\MessageBroker_RabbitMQ\Service2\obj\Debug\net8.0\Service2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mav228\Desktop\MicroservicesExample\IletisimModelleri\MessageBroker_RabbitMQ\Service2\obj\Debug\net8.0\Service2.AssemblyInfoInputs.cache
+C:\Users\mav228\Desktop\MicroservicesExample\IletisimModelleri\MessageBroker_RabbitMQ\Service2\obj\Debug\net8.0\Service2.AssemblyInfo.cs
+C:\Users\mav228\Desktop\MicroservicesExample\IletisimModelleri\MessageBroker_RabbitMQ\Service2\obj\Debug\net8.0\Service2.csproj.CoreCompileInputs.cache
+C:\Users\mav228\Desktop\MicroservicesExample\IletisimModelleri\MessageBroker_RabbitMQ\Service2\obj\Debug\net8.0\Service2.csproj.Up2Date
+C:\Users\mav228\Desktop\MicroservicesExample\IletisimModelleri\MessageBroker_RabbitMQ\Service2\obj\Debug\net8.0\Service2.dll
+C:\Users\mav228\Desktop\MicroservicesExample\IletisimModelleri\MessageBroker_RabbitMQ\Service2\obj\Debug\net8.0\refint\Service2.dll
+C:\Users\mav228\Desktop\MicroservicesExample\IletisimModelleri\MessageBroker_RabbitMQ\Service2\obj\Debug\net8.0\Service2.pdb
+C:\Users\mav228\Desktop\MicroservicesExample\IletisimModelleri\MessageBroker_RabbitMQ\Service2\obj\Debug\net8.0\Service2.genruntimeconfig.cache
+C:\Users\mav228\Desktop\MicroservicesExample\IletisimModelleri\MessageBroker_RabbitMQ\Service2\obj\Debug\net8.0\ref\Service2.dll
