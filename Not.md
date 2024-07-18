@@ -126,3 +126,38 @@ API Gateway'in bu görevleri, mikroservislerin dağıtık yapısını merkezi bi
 - Bir mesaj yayınlanırken ya da yayınlandıktan sonra kaybolma ihtimaline sahiptir işte bu tarz durumlara karşın Outbox Design Pattern'i uygulayarak çözüm getirmeye çalışacağız.
 - Kuyruktan elde edilen mesajlar işlenirken olası hatalar yüzünden bu işlemler yarıda kesilebilmektedir. Haliyle bu tarz durumlardan dolayı bir mesajın işlenip işlenmediği gibi durumları kesinleştirmek gerekmektedir. Bunun içinde Inbox Pattern'dan faydalanılıyor olacağız.
 - Bazen bir servisteki sonuca göre, diğer servislerde yapılan işlemlerin geri alınması gerekebilmektedir. Aksi taktirde servisler arası verisel tutarsızlık meydana gelecektir. İşte servisler arası veri tutarlılığı problemine karşın çözüm getirebilmek için Compensable Transaction davranış
+
+# Uygulama İzleme (Application Monitoring) Nedir? Neden Önemlidir?
+
+Uygulama izleme, hangi mimaride temellendirilmiş olursa olsun bir yazılım uygulamasının çalışma durumunu, performansını ve kullanım sürecindeki ya da sonraki potansiyel sorunları sürekli olarak takip etmeyi içerir. Bu takip sayesinde, uygulamanın sağlığını değerlendirmek, performans sorunlarını tespit etmek ve kullanıcı deneyimini kesintiye uğratmaksızın hızlı aksiyonlar almak için kritik bir rol oynar. Uygulama izlemenin önemini aşağıdaki nedenlerle net bir şekilde izah edebiliriz:
+
+- **Performans Sorunlarını Tespit Etme:** Uygulamanın performansını izleyerek darboğazları ve yavaşlamaları belirleyebilirsiniz.
+- **Sorunları Önceden Belirleme:** Potansiyel problemleri proaktif olarak tespit edip önlem alabilirsiniz.
+- **Kullanıcı Deneyimini Geliştirme:** Kullanıcıların uygulamayı sorunsuz ve hızlı bir şekilde kullanmasını sağlarsınız.
+- **Hızlı Tepki ve Çözüm:** Oluşan sorunlara anında müdahale ederek kesintileri minimuma indirirsiniz.
+- **Verimli Ölçeklendirme:** Uygulamanın kullanım eğilimlerini izleyerek doğru kaynak planlaması yapabilirsiniz.
+- **Veri Odaklı Kararlar:** İzleme verilerini kullanarak bilinçli ve stratejik kararlar alabilirsiniz.
+- **Güvenlik ve Hata İzleme:** Güvenlik açıklarını ve hataları hızlıca tespit ederek güvenliği sağlarsınız.
+
+## Mikroservisler'de İzleme ve Loglama Nasıl ve Hangi Yöntem/Yaklaşımlarla Yapılmalıdır?
+
+Mikroservis mimarisinde izleme ve loglama, sistemin sağlığını ve performansını takip etmek için kritik öneme sahiptir. Bu sayede sorunları hızlıca tespit edebilir ve kullanıcı deneyimini kesintiye uğratmadan müdahale edebilirsiniz.
+
+### Monitoring
+- **Metrikler (Metrics):** Uygulamanın performansını ve kullanım istatistiklerini izlemek için belirli ölçümleri toplar.
+- **Uyarılar (Alerts):** Önceden tanımlanmış metriklerin belirli eşikleri aştığında bildirim gönderir.
+- **Gözlemlemek (Observability):** Sistemin genel sağlığını ve davranışlarını anlamak için çeşitli veri kaynaklarını kullanarak izleme sağlar.
+
+### Loglama
+- **Yapılandırılmış Loglar (Structured Logging):** Logların belirli bir formatta düzenlenmesi, analiz ve arama işlemlerini kolaylaştırır.
+- **Merkezi Günlük Toplama (Centralized Log Collection):** Farklı mikroservislerden gelen logların tek bir yerde toplanması, yönetimi ve analizi kolaylaştırır.
+- **İzlenebilirlik (Traceability):** Servisler arasındaki isteklerin izlenmesini sağlar, böylece bir işlemin hangi aşamalardan geçtiği takip edilebilir.
+
+### Mikroservisler'de Distributed Tracing'nin Önemi
+
+Distributed tracing, bir loglama yöntemi değildir. Mikroservis mimarisinde, bir istemci tarafından yapılan isteğin farklı servisler ve bileşenlerde işlenme sürecini izlememizi sağlar. Bu kritik davranış sayesinde, büyük ve karmaşık sistemlerde isteklerin izlenmesini sağlayarak uygulamanın takip edilebilirliğini artırır ve süreçleri daha da atomik hale getiririz.
+
+Distributed tracing, bir isteğin farklı servisler veya bileşenler arasındaki hareketini izleme ve kaydetme sürecidir. Bu izleme, büyük sistemlerde isteklerin hangi aşamalardan geçtiğini anlamamıza ve performans sorunlarını tespit etmemize yardımcı olur. Ancak, her servis bu izleme sürecinin dışında kendi loglama işlemlerini de gerçekleştirir.
+
+### Bilgilendirme
+Tüm bunların dışında, monitoring ve loglama ile elde edilen metrikler Prometheus, Grafana, ELK gibi araçlarla görselleştirilebilir. Bu sayede loglama süreçlerini kolaylaştırabilir, sorunları rahatlıkla tespit edebilir ve gerekli performans optimizasyonlarını gerçekleştirebilirsiniz.
