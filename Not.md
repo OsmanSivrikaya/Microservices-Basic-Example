@@ -161,3 +161,42 @@ Distributed tracing, bir isteğin farklı servisler veya bileşenler arasındaki
 
 ### Bilgilendirme
 Tüm bunların dışında, monitoring ve loglama ile elde edilen metrikler Prometheus, Grafana, ELK gibi araçlarla görselleştirilebilir. Bu sayede loglama süreçlerini kolaylaştırabilir, sorunları rahatlıkla tespit edebilir ve gerekli performans optimizasyonlarını gerçekleştirebilirsiniz.
+
+
+# Mikroservislerin Güvenliği
+
+## Kimlik Doğrulama ve Yetkilendirme
+Mikroservislere erişim sağlayan kullanıcıların kimlik doğrulaması sağlanmalı, bunun için de kullanıcı bilgileri güvende tutulmalı ve sadece gerekli yetkilere sahip olanlar erişim elde etmelidir.
+
+### Kimlik Doğrulama Yöntemleri
+- **JWT Tabanlı:** Kullanıcı giriş yaptığında bir merkezi kimlik sağlayıcısı (identity provider) tarafından, içerisinde kullanıcının kimliği ve yetkilendirmesi hakkında bilgileri içeren bir JWT değeri üretilir ve bu değer kullanıcı tarafından elde edilir. Kullanıcı bu JWT değeri ile mikroservislere isteklerde bulunur ve servisler tarafından da token doğrulanarak, yetkisi doğrultusunda işlemler gerçekleştirebilir.
+
+- **OAuth 2.0:** Mikroservis mimarisi çalışmalarında genellikle bu protokol kullanılır. Uygulamaların kaynak sahiplerinin verilerine güvenli bir erişim yapmasını sağlayan bir yetkilendirme protokolüdür. Tüm kimlik doğrulama ve yetkilendirme sorumluluğunu bir yetkilendirme sunucusu (Authorization Server) üstlenmektedir.
+
+- **OpenID Connect:** OpenID Connect, OAuth 2.0 üzerine inşa edilmiş bir kimlik doğrulama protokolüdür. Kimlik sağlayıcısı tarafından kullanıcının kimlik bilgilerini doğrulamak için kullanılır ve kimlik doğrulama işlemi sonrasında bir ID token üretilir.
+
+### Yetkilendirme Yöntemleri
+- **Rol ve İzin Tabanlı Yetkilendirme:** Kullanıcıların rolleri ve bu rollere bağlı izinler doğrultusunda yetkilendirme sağlanır.
+- **Merkeziyetçi Yetkilendirme Sunucusu (Authorization Server):** Tüm yetkilendirme işlemlerini merkezi bir sunucu üzerinden gerçekleştirir.
+- **Mikroservis Düzeyindeki Yetkilendirme:** Her mikroservis kendi yetkilendirme mekanizmasını yönetir.
+- **Çok Faktörlü Kimlik Doğrulama:** Ek bir güvenlik katmanı olarak kullanıcıların kimlik doğrulamasında birden fazla doğrulama yöntemi kullanılır.
+
+## Veri Güvenliği
+Mikroservisler arasında iletilen verilerin şifrelenmesi gerekmektedir. HTTPS gibi güvenli iletişim protokolleri kullanarak veri akışını şifreleyebilirsiniz. Message Broker gibi haberleşmelerde mesajları şifreleyerek güvenliği sağlayabilirsiniz.
+
+## API Güvenliği
+Mikroservislerin dış dünyayla iletişim kurduğu nokta API'lardır. API'ların güvenliği için JWT tabanlı doğrulama gibi yöntemler kullanılabilir.
+
+## Ağ Güvenliği 
+Mikroservisler arasındaki iletişim ağı da güvence altına alınmalı; sanal ağlar, güvenlik duvarları, ağ segmentasyonu gibi yöntemlerle siber saldırılara karşı koruma sağlanmalıdır.
+
+## İzlenebilirlik ve Loglama
+Mikroservislerde güvenliğin esas unsurlarından biri izlenebilirlik ve süreçteki problemlere dair anında veri toplamamızı sağlayacak olan log mekanizmasıdır. Bu yapı sayesinde anormal aktiviteler anında tespit edilebilir.
+
+# Veri Senkronizasyonu Stratejileri
+
+## Veri Senkronizasyonu Nedir? Neden Önemlidir?
+Mikroservis mimarisinde uygulama farklı parçalara yani mikro servislere bölünmüş olduğundan bu servisler arasında veri senkronizasyonu kritik bir öneme sahiptir. Her servis, best practice olarak kendi veritabanına sahip olacağından servisler arasında bir verinin bütünsel olarak tutarlılık göstermesi gerekmektedir.
+
+## API Çağrıları
+Mikroservisler arasında veri senkronizasyonunu desteklemek için API çağrılarından istifade edeilirsiniz. Böylece bir servisten hedefteki farklı bir servisi API aracılığıyla tetikleyebilir ve veri tutarlılığını nokta atış sağlayabilirsiniz.
